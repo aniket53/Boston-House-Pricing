@@ -39,3 +39,9 @@ git add .
 git commit -m "v0.1"
 git push origin main
 ...
+
+To run the Flask app:-
+
+...
+python app.py
+...
