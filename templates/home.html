@@ -1,47 +1,162 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Prediction</title>
 
-  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .details{
+            padding: 5vh;
+            padding-top: 2vh;
+            padding-bottom: 1vh;
+            font-family: 'Merriweather', serif;
+            font-size: xx-large;
+            font-weight: bold;
+            text-align: center;
+        }
+        .form-actual{
+            font-family: 'Merriweather', serif;
+            text-align: left;
+            padding-left: 30%;
+        }
+        .label{
+            margin-bottom: 1%;
+        }
+        span{
+            font-size: 20px;
+        }
+        .input{
+            border-radius: 5px;
+            background-color: #eafafb;
+        }
+        .btn{
+            padding: 1%;
+            background-color: lightgreen;
+            font-family: 'Merriweather', serif;
+            font-size: 15px;
+            border-radius: 5px;
+        }
+        .btns{
+            background-color: lightblue;
+            border-radius: 5px;
+        }
+        .aherf{
+            font-family: 'Merriweather', serif;
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+        }
+        .know{
+            text-align: center;
+            font-family: 'Merriweather', serif;
+        }
+        .h2class{
+            font-size: 15px;
+        }
+        .pred{
+            text-align: center;
+            font-size: larger;
+            font-weight: bolder;
+            font-family: 'Merriweather', serif;
+            padding: 2%;
+        }
+    </style>
 </head>
-
 <body>
- <div class="login">
-	<h1>Boston House Price Prediction</h1>
+    <div class="container">
+        <div class="details">
+            <div class="heading">Boston House Price Prediction</div>
+        </div>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-    	<input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-        <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-        <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-        <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-        <input type="text" name="RM" placeholder="RM" required="required" /><br>
-        <input type="text" name="Age" placeholder="Age" required="required" /><br>
-        <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-        <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-        <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-        <input type="text" name="B" placeholder="B" required="required" /><br>
-        <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+        <div class="form-here">
+            <form action="{{ url_for('predict')}}"method="post" class="form-actual">
+                <div class="form-cont-label">
 
+                    <h3>Enter the following details</h3>
+                    <div class="label">
+                        <span>CRIM</span>
+                        <input type="text" name="CRIM"  required="required" class="input" /><br>
+                    </div>
+            
+                    <div class="label">
+                        <span>ZN</span> 
+                        <input type="text" name="ZN"  required="required" class="input"/><br>
+                    </div>
+                    
+                    <div class="label">
+                        <span>INDUS</span>
+                        <input type="text" name="INDUS"  required="required" class="input"/><br>
+                    </div>
+                
+                    <div class="label">
+                        <span>CHAS</span> 
+                        <input type="text" name="CHAS"  required="required" class="input"/><br>
+                    </div>
+                
+                    <div class="label">
+                        <span>NOX</span> 
+                        <input type="text" name="NOX" required="required" class="input"/><br>
+                    </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+                    <div class="label">
+                        <span>RM</span> 
+                        <input type="text" name="RM"  required="required" class="input"/><br>
+                    </div>
 
-   <br>
-   <br>
-  
-   
- </div>
- {{prediction_text}}
+                    <div class="label">
+                        <span>AGE</span> 
+                        <input type="text" name="Age"  required="required" class="input"/><br>
+                    </div>
 
+                    <div class="label">
+                        <span>DIS</span> 
+                        <input type="text" name="DIS"  required="required" class="input"/><br>
+                    </div>
+
+                    <div class="label">
+                        <span>RAD</span> 
+                        <input type="text" name="RAD"  required="required" class="input"/><br>
+                    </div>
+
+                    <div class="label">
+                        <span>TAX</span> 
+                        <input type="text" name="TAX"  required="required" class="input"/><br>
+                    </div>
+
+                    <div class="label">
+                        <span>PTRATIO</span> 
+                        <input type="text" name="PTRATIO" required="required" class="input"/><br>
+                    </div>
+
+                    <div class="label">
+                        <span>B</span> 
+                        <input type="text" name="B"  required="required" class="input"/><br>
+                    </div>
+
+                    <div class="label">
+                        <span>LSTAT</span> 
+                        <input type="text" name="LSTAT"  required="required" class="input"/><br>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Calculate Price</button>
+                </div>
+            </form>
+        </div>
+        <div class="pred">
+            {{prediction_text}}
+        </div>
+        <div class="know">
+            <h2 class="h2class">For more details about project: <button class="btns"><a class="aherf" href="https://github.com/aniket53/Boston-House-Pricing">Github</a></button></h2>
+        </div>
+    </div>
 </body>
 </html>
