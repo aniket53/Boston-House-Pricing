@@ -45,3 +45,7 @@ To run the Flask app:-
 ...
 python app.py
 ...
+
+Heroku Deployment:-
+1. Create a Procfile: web: gunicorn app:app
+
