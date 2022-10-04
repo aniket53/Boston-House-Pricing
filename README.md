@@ -48,4 +48,9 @@ python app.py
 
 Heroku Deployment:-
 1. Create a Procfile: web: gunicorn app:app
+2. Go to Heroku app create new app and deploy using Github.
 
+Heroku deployment using Docker and Github Actions(CICD Pipeline):-
+1. Create Dockerfile
+2. Create two folders .github/workflows and inside it create main.yaml
+3. Go Repo settings->Secrets ->Actions ->New secret Key ->Add all the keys
