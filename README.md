@@ -1,56 +1,109 @@
-### Boston-House-Pricing
-Under Construction :)
 
-### Software & Tools Required 
-1. [Github Account](https://github.com)
-2. [VS Code IDE](https://code.visualstudio.com/)
-3. [Heroku Account](https://heroku.com)
-4. [GitCLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+# Boston House Price Prediction
 
-Create a new Environment
+Provide some set of inputs to the trained machine learning model and ML model will give you the estimated price for the house in Boston.
 
-...
-conda create -p venv python==3.7 -y
-... 
 
-To Run the Environment
 
-...
-conda activate venv/
-...
+## Table of Contents
+1. Deployment
+2. Software & Tools
+3. Commands
+4. Features
+5. Developers
+6. Feedback
+## Deployment
 
-Create "requirements.txt"
+```bash
+  boston-house-pricing-cicd.herokuapp.com
+```
 
-...
-pip install -r requirements.txt
-...
 
-Run the following Git Commands for Git Setup:-
+## Software & Tools
 
-...
-git config --global user.name
-git config --global user.email
-...
+1. Github Account
+2. Visual Studio Code IDE
+3. Heroku Account
+4. Git CLI 
+## Commands
+1. Create a new Environment
+```bash
+  conda create -p venv python==3.7 -y
+```
 
-To commit the code to Github:-
+2. To Run the Environment
+```bash
+  conda activate venv/
+```
 
-...
-git add .
-git commit -m "v0.1"
-git push origin main
-...
+3. Create "requirements.txt"
 
-To run the Flask app:-
+4. Install all dependencies from "requirements.txt" file
+```bash
+  pip install -r requirements.txt
+```
 
-...
-python app.py
-...
+5. Git Setup
+```bash
+  git config --global user.name
+  git config --global user.email
+  git add . 
+  git commit -m "commit message" 
+  git push origin main
+```
 
-Heroku Deployment:-
-1. Create a Procfile: web: gunicorn app:app
-2. Go to Heroku app create new app and deploy using Github.
+6. Run flask app
+```bash
+  python app.py
+```
 
-Heroku deployment using Docker and Github Actions(CICD Pipeline):-
-1. Create Dockerfile
-2. Create two folders .github/workflows and inside it create main.yaml
-3. Go Repo settings->Secrets ->Actions ->New secret Key ->Add all the keys
+7. Heroku Deployment
+
+```bash
+  Create a Procfile
+    web: gunicorn app:app
+```
+8. Heroku deployment using Docker and Github Actions(CICD Pipeline)
+```bash
+  Create two folders
+    .github
+    .github/workflows
+  Create .yaml file
+    main.yaml
+```
+
+9. Github Actions
+```bash 
+  Go to Repo settings->Secrets ->Actions ->New secret Key ->Add all the keys
+```
+## Features
+
+1. Model is trained using Linear Regression algorithm based on supervised learning.
+2. Attribute Information (in order): 
+
+        - CRIM     per capita crime rate by town
+        - ZN       proportion of residential land zoned for lots over 25,000 sq.ft.
+        - INDUS    proportion of non-retail business acres per town
+        - CHAS     Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
+        - NOX      nitric oxides concentration (parts per 10 million)
+        - RM       average number of rooms per dwelling
+        - AGE      proportion of owner-occupied units built prior to 1940
+        - DIS      weighted distances to five Boston employment centres
+        - RAD      index of accessibility to radial highways
+        - TAX      full-value property-tax rate per $10,000
+        - PTRATIO  pupil-teacher ratio by town
+        - B        1000(Bk - 0.63)^2 where Bk is the proportion of black people by town
+        - LSTAT    % lower status of the population
+        - MEDV     Median value of owner-occupied homes in $1000's
+
+## Developers
+
+- [@aniket53](https://github.com/aniket53) 
+
+
+
+## Feedback
+
+Feel free to provide the feedback.
+
+Contact Here:- akhot610@gmail.com
